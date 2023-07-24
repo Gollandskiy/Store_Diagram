@@ -1,7 +1,7 @@
 SELECT name, id_category, id_producer
 FROM Store_Diagram.dbo.Product_Table
 WHERE id_producer = 5 OR id_producer = 4
----1. Задание - У меня нет поставщиков "Паньки" и "Какие люди", поэтому заменил другими
+---1. Г‡Г Г¤Г Г­ГЁГҐ
 
 SELECT Product_Table.name, id_producer,id_markup
 FROM Store_Diagram.dbo.Product_Table
@@ -11,7 +11,7 @@ WHERE P1.name NOT LIKE '%A%'
   AND P1.name NOT LIKE '%M%'
   SELECT *
   FROM Producer_Table
-  ---2. Задание - Категории "Крупы" у меня нет, поэтому не сделал
+  ---2. Г‡Г Г¤Г Г­ГЁГҐ
 
   SELECT Product_Table.name, id_category ,id_producer, C2.name, M2.[percent], D1.date_of_delivery
   FROM Product_Table
@@ -22,8 +22,8 @@ WHERE P1.name NOT LIKE '%A%'
   JOIN Country_Table AS C2 ON R1.id_country = C2.ID
   JOIN Markup_Table as M2 ON Product_Table.id_markup = M2.ID
   JOIN Delivery_Table AS D1 ON Product_Table.ID = D1.id_product
-  WHERE C2.name NOT LIKE 'Украина' and C2.name NOT LIKE 'Молдова' and C2.name NOT LIKE 'Польша' AND m2.[percent] <= 50 AND date_of_delivery > '2023-05-10'
-  ---3. Задание
+  WHERE C2.name NOT LIKE 'Г“ГЄГ°Г ГЁГ­Г ' and C2.name NOT LIKE 'ГЊГ®Г«Г¤Г®ГўГ ' and C2.name NOT LIKE 'ГЏГ®Г«ГјГёГ ' AND m2.[percent] <= 50 AND date_of_delivery > '2023-05-10'
+  ---3. Г‡Г Г¤Г Г­ГЁГҐ
 
   SELECT Sale_Table.id_product, Sale_Table.quantity
   FROM Sale_Table
@@ -31,19 +31,19 @@ WHERE P1.name NOT LIKE '%A%'
   JOIN Producer_Table AS P3 ON P2.id_producer = P3.ID
   JOIN Markup_Table AS M1 ON P2.id_markup = M1.ID
   WHERE P2.id_category IN (3,5) AND Sale_Table.quantity > 100
-  --- 4. Задание
+  --- 4. Г‡Г Г¤Г Г­ГЁГҐ
 
-  SELECT Product_Table.name AS 'Товар', Supplier_Table.name AS 'Поставщик',Category_Table.name AS 'Категория',Delivery_Table.date_of_delivery AS 'Дата поставки', Delivery_Table.price*Delivery_Table.quantity AS 'Общая стоимость'
+  SELECT Product_Table.name AS 'Г’Г®ГўГ Г°', Supplier_Table.name AS 'ГЏГ®Г±ГІГ ГўГ№ГЁГЄ',Category_Table.name AS 'ГЉГ ГІГҐГЈГ®Г°ГЁГї',Delivery_Table.date_of_delivery AS 'Г„Г ГІГ  ГЇГ®Г±ГІГ ГўГЄГЁ', Delivery_Table.price*Delivery_Table.quantity AS 'ГЋГЎГ№Г Гї Г±ГІГ®ГЁГ¬Г®Г±ГІГј'
   FROM Delivery_Table
   JOIN Product_Table ON Delivery_Table.id_product = Product_Table.ID
   JOIN Supplier_Table ON Delivery_Table.id_supplier = Supplier_Table.ID
   JOIN Category_Table ON Product_Table.id_category = Category_Table.ID
   WHERE Supplier_Table.name = 'Sup_God' OR Supplier_Table.name = 'Good_Sup' OR Supplier_Table.name = 'Sup_Pro'
   ORDER BY Product_Table.name
-  ---5 Задание
+  ---5 Г‡Г Г¤Г Г­ГЁГҐ
   
-  SELECT DISTINCT Product_Table.name AS 'ТОВАР',Producer_Table.name AS 'ПРОИЗВОДИТЕЛЬ', Address_Table.street AS 'АДРЕС', City_Table.name AS 'ГОРОД', Region_Table.name AS 'ОБЛАСТЬ', Country_Table.name AS 'СТРАНА',
-  Category_Table.name AS 'КАТЕГОРИЯ', Sale_Table.date_of_sale AS 'ДАТА ПРОДАЖИ', Sale_Table.price* Sale_Table.quantity AS 'ОБЩАЯ СТОИМОСТЬ'
+  SELECT DISTINCT Product_Table.name AS 'Г’ГЋГ‚ГЂГђ',Producer_Table.name AS 'ГЏГђГЋГ€Г‡Г‚ГЋГ„Г€Г’Г…Г‹Гњ', Address_Table.street AS 'ГЂГ„ГђГ…Г‘', City_Table.name AS 'ГѓГЋГђГЋГ„', Region_Table.name AS 'ГЋГЃГ‹ГЂГ‘Г’Гњ', Country_Table.name AS 'Г‘Г’ГђГЂГЌГЂ',
+  Category_Table.name AS 'ГЉГЂГ’Г…ГѓГЋГђГ€Гџ', Sale_Table.date_of_sale AS 'Г„ГЂГ’ГЂ ГЏГђГЋГ„ГЂГ†Г€', Sale_Table.price* Sale_Table.quantity AS 'ГЋГЃГ™ГЂГџ Г‘Г’ГЋГ€ГЊГЋГ‘Г’Гњ'
   FROM Product_Table
   JOIN Delivery_Table ON Product_Table.ID = Delivery_Table.id_product
   JOIN Producer_Table ON Product_Table.id_producer = Producer_Table.ID
@@ -54,6 +54,6 @@ WHERE P1.name NOT LIKE '%A%'
   JOIN Category_Table ON Product_Table.id_category = Category_Table.ID
   JOIN Sale_Table ON Product_Table.ID = Sale_Table.id_product
   ORDER BY Sale_Table.price*Sale_Table.quantity ASC
-  ---6. Задание
+  ---6. Г‡Г Г¤Г Г­ГЁГҐ
 
 
